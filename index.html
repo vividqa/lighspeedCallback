@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Callback Page</title>
+</head>
+<body>
+    <h1>Real-time API Callback from Lightspeed HQ X Series</h1>
+    <div id="apiResponse"></div>
+
+    <script>
+        // Function to fetch data from the API
+        async function fetchData() {
+            try {
+                const response = await fetch('https://api.lightspeedhq.com/x-series/data'); // Replace with your API URL
+                const data = await response.json();
+                document.getElementById('apiResponse').innerHTML = JSON.stringify(data, null, 2);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // Call the fetchData function when the page loads
+        window.addEventListener('load', fetchData);
+    </script>
+</body>
+</html>
